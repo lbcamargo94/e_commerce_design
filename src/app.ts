@@ -9,12 +9,13 @@ import helmet from "helmet";
 import Routes from "./routes";
 // Middleware
 import HandleError from "./middleware/errors";
+import { corsOptions } from "./config/server/CorsConfig";
 
 const { handleError } = new HandleError();
 
 const app: express.Express = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(helmet());
 

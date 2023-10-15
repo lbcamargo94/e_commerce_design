@@ -18,7 +18,18 @@
     "strict": true,
     "target": "es2016",
     "typeRoots": ["./node_modules/@types", "@types"],
-    "paths": {},
+    "paths": {
+      "@config/*": ["src/config/*"],
+      "@controller/*": ["src/modules/controller*"],
+      "@database/*": ["src/database/*"],
+      "@erro/*": ["src/error/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@middleware/*": ["src/middleware/*"],
+      "@model/*": ["src/modules/model*"],
+      "@routes/*": ["src/routes/*"],
+      "@service/*": ["src/modules/service*"],
+      "@test/*": ["src/test/*"],
+    },
     "strictPropertyInitialization": false
   }
 }
