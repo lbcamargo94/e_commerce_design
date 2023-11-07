@@ -1,6 +1,6 @@
 import { BadRequestError } from "@erro/index";
-import { ICreateUser } from "@interfaces/users/create";
-import { CreateUserModel } from "@model/users/create";
+import { ICreateUser } from "@interfaces/users/CreateUsersInterface";
+import { CreateUserModel } from "@model/users/CreateUsersModel";
 
 export class CreateUserService {
   public async CreateUser(newUser: ICreateUser) {

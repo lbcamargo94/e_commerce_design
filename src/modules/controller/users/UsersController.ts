@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { ICreateUser } from "@interfaces/users/create";
-import { CreateUserService } from "@service/users/create";
+import { CreateUserService } from "@service/users/CreateUsersService";
+import { ICreateUser } from "@interfaces/users/CreateUsersInterface";
 
 export class CreateUserController {
   public async CreateUser(request: Request, response: Response): Promise<Response> {

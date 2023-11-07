@@ -1,5 +1,5 @@
 import { database } from "@database/connection";
-import { ICreateUser } from "@interfaces/users/create";
+import { ICreateUser } from "@interfaces/users/CreateUsersInterface";
 
 export class CreateUserModel {
   public async CreateUser(newUser: ICreateUser) {
