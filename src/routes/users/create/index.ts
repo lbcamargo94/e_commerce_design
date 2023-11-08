@@ -1,10 +1,17 @@
-import { CreateUserController } from "@controller/users/UsersController";
+import { CreateUserController } from "@controller/users/CreateUsersController";
+import { CreateUserMiddleware } from "@middleware/users/CreateUserMiddleware";
 import { Router } from "express";
 
 const CreateUserRoutes = Router();
 
-const { CreateUser } = new CreateUserController();
+const createUsersMiddleware = new CreateUserMiddleware();
 
-CreateUserRoutes.post("/create_user", CreateUser);
+const createUserController = new CreateUserController();
+
+CreateUserRoutes.post(
+  "/create_user",
+  createUsersMiddleware.CreateUser,
+  createUserController.CreateUser,
+);
 
 export default CreateUserRoutes;
