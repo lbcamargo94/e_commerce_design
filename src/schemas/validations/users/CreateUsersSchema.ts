@@ -1,4 +1,4 @@
-import { object, z } from "zod";
+import { z } from "zod";
 
 const REGEX_EMAIL_VALIDATION = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
@@ -19,6 +19,7 @@ export class CreateUsersSchema {
         }),
     });
   }
+
   // public Updated() {
   //   return z.object({
   //     id: z.string({

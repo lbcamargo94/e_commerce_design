@@ -13,6 +13,6 @@ export class GetUsersService {
       };
     }
 
-    throw new BadRequestError("Não foi possível buscar por usuários.");
+    throw new BadRequestError("Não foi possível buscar pelos usuários.");
   }
 }

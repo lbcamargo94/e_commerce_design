@@ -1,13 +1,26 @@
-import { BadRequestError } from "@erro/index";
+import { BadRequestError, ConflictError } from "@erro/index";
 import { ICreateUser } from "@interfaces/users/CreateUsersInterface";
 import { CreateUserModel } from "@model/users/CreateUsersModel";
+import { GetUsersModel } from "@model/users/GetUsersModel";
 
 export class CreateUserService {
   public async CreateUser(newUser: ICreateUser) {
     const { name, email } = newUser;
 
+    const formatNewUser = {
+      name: name.trim(),
+      email: email.trim(),
+    };
+
+    const getUsersModel = new GetUsersModel();
+    const userAlreadyExist = await getUsersModel.GetUserByEmail(formatNewUser.email);
+
+    if (userAlreadyExist) {
+      throw new ConflictError("O e-mail informado já é cadastrado.");
+    }
+
     const createUserModel = new CreateUserModel();
-    const result = await createUserModel.CreateUser({ name, email });
+    const result = await createUserModel.CreateUser(formatNewUser);
 
     if (result) {
       return {
