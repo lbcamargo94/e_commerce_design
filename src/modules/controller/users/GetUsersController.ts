@@ -1,7 +1,8 @@
+import { GetUsersService } from "@service/users/GetUsersService";
 import { Request, Response } from "express";
 
 export class GetUsersController {
-  public async GetAllUsers(request: Request, response: Response): Promise<Response> {
+  public async GetAllUsers(_request: Request, response: Response): Promise<Response> {
     const getUsersService = new GetUsersService();
 
     const result = await getUsersService.GetAllUsers();

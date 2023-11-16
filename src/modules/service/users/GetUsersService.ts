@@ -1,17 +1,14 @@
 import { BadRequestError } from "@erro/index";
-import { ICreateUser } from "@interfaces/users/CreateUsersInterface";
-import { CreateUserModel } from "@model/users/CreateUsersModel";
+import { GetUsersModel } from "@model/users/GetUsersModel";
 
-export class CreateUserService {
-  public async CreateUser(newUser: ICreateUser) {
-    const { name, email } = newUser;
-
-    const createUserModel = new CreateUserModel();
-    const result = await createUserModel.CreateUser({ name, email });
+export class GetUsersService {
+  public async GetAllUsers() {
+    const getUsersModel = new GetUsersModel();
+    const result = await getUsersModel.GetAllUsers();
 
     if (result) {
       return {
-        message: "Novo usuário foi criado com sucesso!",
+        message: result,
         status: 200,
       };
     }

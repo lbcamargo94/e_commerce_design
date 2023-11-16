@@ -3,20 +3,6 @@ import { object, z } from "zod";
 const REGEX_EMAIL_VALIDATION = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 export class CreateUsersSchema {
-  // export const CreateUsersSchema = z.object({
-  //   name: z.string({
-  //     invalid_type_error: "Nome não é do tipo string.",
-  //     required_error: "Nome é um campo obrigatório.",
-  //   }),
-  //   email: z
-  //     .string({
-  //       invalid_type_error: "Email não é do tipo string.",
-  //       required_error: "Email é um campo obrigatório.",
-  //     })
-  //     .regex(REGEX_EMAIL_VALIDATION, {
-  //       message: "Endereço de email é inválido.",
-  //     }),
-  // });
   public Create() {
     return z.object({
       name: z.string({
