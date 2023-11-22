@@ -6,6 +6,7 @@ const SELECT_USERS = {
   email: true,
   isValidate: true,
   name: true,
+  validationCode: true,
 };
 
 export class GetUsersModel {
