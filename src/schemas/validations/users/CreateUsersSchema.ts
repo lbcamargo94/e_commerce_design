@@ -7,23 +7,24 @@ export class CreateUsersSchema {
   public Create() {
     return z.object({
       name: z.string({
-        invalid_type_error: "Nome não é do tipo string.",
+        invalid_type_error: "Nome tem um tipo inválido.",
         required_error: "Nome é um campo obrigatório.",
       }),
 
       email: z
         .string({
-          invalid_type_error: "E-mail não é do tipo string.",
+          invalid_type_error: "E-mail tem um tipo inválido.",
           required_error: "E-mail é um campo obrigatório.",
         })
-        .email({ message: "" })
+        .email({ message: "E-mail é inválido, deve obedecer o formato email@email.com!" })
         .regex(REGEX_EMAIL_VALIDATION, {
-          message: "Endereço de e-mail é inválido.",
+          message:
+            "Endereço de e-mail é inválido, deve obedecer o formato email@email.com!.",
         }),
 
       birthday: z
         .string({
-          invalid_type_error: "E-mail não é do tipo string.",
+          invalid_type_error: "E-mail tem um tipo inválido.",
           required_error: "E-mail é um campo obrigatório.",
         })
         .length(8, {
@@ -33,7 +34,7 @@ export class CreateUsersSchema {
       cpf: z
         .string({
           invalid_type_error: "CPF não atende o tipo válido.",
-          required_error: "CPF não é do tipo string.",
+          required_error: "CPF tem um tipo inválido.",
         })
         .regex(REGEX_CPF_VALIDATION, {
           message: "CPF inválido, o CPF deve obedecer o formato 000.000.000-00.",
@@ -47,7 +48,7 @@ export class CreateUsersSchema {
   // public Updated() {
   //   return z.object({
   //     id: z.string({
-  //       invalid_type_error: "ID não é do tipo string.",
+  //       invalid_type_error: "ID tem um tipo inválido.",
   //       required_error: "ID é um campo obrigatório.",
   //     }),
   //     blocked: z.boolean({
@@ -59,15 +60,15 @@ export class CreateUsersSchema {
   //       required_error: "Validado é um campo obrigatório.",
   //     }),
   //     name: z.string({
-  //       invalid_type_error: "Nome não é do tipo string.",
+  //       invalid_type_error: "Nome tem um tipo inválido.",
   //       required_error: "Nome é um campo obrigatório.",
   //     }),
   //     email: z.string({
-  //       invalid_type_error: "Email não é do tipo string.",
+  //       invalid_type_error: "Email tem um tipo inválido.",
   //       required_error: "Email é um campo obrigatório.",
   //     }),
   //     password: z.string({
-  //       invalid_type_error: "Password não é do tipo string.",
+  //       invalid_type_error: "Password tem um tipo inválido.",
   //       required_error: "Password é um campo obrigatório.",
   //     }),
   //     validationCode: z.string({
@@ -79,7 +80,7 @@ export class CreateUsersSchema {
   // public Block() {
   //   return z.object({
   //     id: z.string({
-  //       invalid_type_error: "ID não é do tipo string.",
+  //       invalid_type_error: "ID tem um tipo inválido.",
   //       required_error: "ID é um campo obrigatório.",
   //     }),
   //     blocked: z.boolean({

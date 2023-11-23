@@ -5,7 +5,7 @@ export interface IUpdateUserEmail {
 }
 
 export interface IUpdateUsersPassword {
-  id: string;
+  email: string;
   password: string;
   passwordConfirmation: string;
   validationCode: string;
