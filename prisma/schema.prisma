@@ -17,10 +17,13 @@ model Users {
   cpf            String  @db.VarChar(11)
   email          String  @db.VarChar(100)
   name           String  @db.VarChar(100)
+  lastName       String  @db.VarChar(100)
   password       String? @db.VarChar(50)
   validationCode String? @db.VarChar(6)
-  blocked        Boolean @default(false)
-  isValidate     Boolean @default(false)
+
+  // Default Values
+  blocked    Boolean @default(false)
+  isValidate Boolean @default(false)
 
   // Create and Delete
   createdAt DateTime @default(now()) @db.Timestamptz()

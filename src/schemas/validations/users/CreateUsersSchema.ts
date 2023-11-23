@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 const REGEX_EMAIL_VALIDATION = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const REGEX_CPF_VALIDATION = /(\d{3})(\d{3})(\d{3})(\d{2})/;
 
 export class CreateUsersSchema {
   public Create() {
@@ -9,13 +10,36 @@ export class CreateUsersSchema {
         invalid_type_error: "Nome não é do tipo string.",
         required_error: "Nome é um campo obrigatório.",
       }),
+
       email: z
         .string({
-          invalid_type_error: "Email não é do tipo string.",
-          required_error: "Email é um campo obrigatório.",
+          invalid_type_error: "E-mail não é do tipo string.",
+          required_error: "E-mail é um campo obrigatório.",
         })
+        .email({ message: "" })
         .regex(REGEX_EMAIL_VALIDATION, {
-          message: "Endereço de email é inválido.",
+          message: "Endereço de e-mail é inválido.",
+        }),
+
+      birthday: z
+        .string({
+          invalid_type_error: "E-mail não é do tipo string.",
+          required_error: "E-mail é um campo obrigatório.",
+        })
+        .length(8, {
+          message: "Data de aniversário deve obedecer o formato DD/MM/AAAA.",
+        }),
+
+      cpf: z
+        .string({
+          invalid_type_error: "CPF não atende o tipo válido.",
+          required_error: "CPF não é do tipo string.",
+        })
+        .regex(REGEX_CPF_VALIDATION, {
+          message: "CPF inválido, o CPF deve obedecer o formato 000.000.000-00.",
+        })
+        .length(11, {
+          message: "CPF deve ter o tamanho de 11 caracteres.",
         }),
     });
   }
