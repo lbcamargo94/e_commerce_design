@@ -1,5 +1,8 @@
 import { Router } from "express";
+import AdminRoutes from "./admin";
 
 const Routes = Router();
 
-export default Routes;
+Routes.use("/admin", AdminRoutes);
+
+export { Routes };

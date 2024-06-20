@@ -1,5 +1,7 @@
+// Express
 import { NextFunction, Request, Response } from "express";
-import { ApiError } from "src/error";
+// API Error
+import { ApiError } from "@erro/index";
 
 export default class HandleError {
   public handleError(
