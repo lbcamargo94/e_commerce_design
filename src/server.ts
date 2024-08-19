@@ -1,6 +1,4 @@
-// Console log
 import { log } from "console";
-// Application
 import { app } from "./app";
 
 const PORT = process.env.APPLICATION_PORT || "3001";
