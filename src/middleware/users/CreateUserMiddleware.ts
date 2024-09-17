@@ -1,7 +1,7 @@
 import { BadRequestError } from "@erro/index";
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 import { CreateUsersSchema } from "src/schemas/validations/users/CreateUsersSchema";
-import { z } from "zod";
+import type { z } from "zod";
 
 export class CreateUserMiddleware {
   public CreateUser(request: Request, _response: Response, next: NextFunction) {

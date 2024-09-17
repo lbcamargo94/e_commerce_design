@@ -1,5 +1,5 @@
 import { BadRequestError, ConflictError, NotFoundError } from "@erro/index";
-import { IUpdateUserEmail } from "@interfaces/users/UpdateUsersInterface";
+import type { IUpdateUserEmail } from "@interfaces/users/UpdateUsersInterface";
 import { GetUsersModel } from "@model/users/GetUsersModel";
 import { UpdateUsersModel } from "@model/users/UpdateUsersModel";
 

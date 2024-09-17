@@ -5,6 +5,6 @@ const RequestUsersRoutes = Router();
 
 const getUsersController = new GetUsersController();
 
-RequestUsersRoutes.get("/get_all_users", getUsersController.GetAllUsers);
+RequestUsersRoutes.get("/all_users", getUsersController.GetAllUsers);
 
 export default RequestUsersRoutes;

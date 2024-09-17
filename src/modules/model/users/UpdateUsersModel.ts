@@ -1,5 +1,5 @@
 import { database } from "@database/connection";
-import { IUpdateUserEmail } from "@interfaces/users/UpdateUsersInterface";
+import type { IUpdateUserEmail } from "@interfaces/users/UpdateUsersInterface";
 
 export class UpdateUsersModel {
   public async UpdateUsersEmail(updateUserEmail: IUpdateUserEmail) {

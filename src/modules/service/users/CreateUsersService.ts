@@ -1,7 +1,7 @@
-import { BadRequestError, ConflictError } from "@erro/index";
-import { ICreateUser } from "@interfaces/users/CreateUsersInterface";
-import { CreateUserModel } from "@model/users/CreateUsersModel";
-import { GetUsersModel } from "@model/users/GetUsersModel";
+import { BadRequestError, ConflictError } from '@erro/index';
+import { CreateUserModel } from '@model/users/CreateUsersModel';
+import { GetUsersModel } from '@model/users/GetUsersModel';
+import type { ICreateUser } from "@interfaces/users/CreateUsersInterface";
 
 export class CreateUserService {
   public async CreateUser(newUser: ICreateUser) {
