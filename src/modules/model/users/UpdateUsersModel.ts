@@ -12,4 +12,18 @@ export class UpdateUsersModel {
 
     return result;
   }
+
+  public async UpdateUserPassword(updateUserPassword: {
+    id: string;
+    password: string;
+  }) {
+    const { id, password } = updateUserPassword;
+
+    const result = await database.users.update({
+      where: { id },
+      data: { password },
+    });
+
+    return result;
+  }
 }

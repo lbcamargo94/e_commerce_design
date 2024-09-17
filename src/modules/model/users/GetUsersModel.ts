@@ -18,18 +18,18 @@ export class GetUsersModel {
     return result;
   }
 
-  public async GetUserById(id: string) {
+  public async GetUserById(user_id: string) {
     const result = await database.users.findFirst({
-      where: { id },
+      where: { id: user_id },
       select: SELECT_USERS,
     });
 
     return result;
   }
 
-  public async GetUserByEmail(email: string) {
+  public async GetUserByEmail(user_email: string) {
     const result = await database.users.findFirst({
-      where: { email },
+      where: { email: user_email },
       select: SELECT_USERS,
     });
 

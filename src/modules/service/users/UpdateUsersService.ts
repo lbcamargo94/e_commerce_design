@@ -17,7 +17,9 @@ export class UpdateUsersService {
     const userAlreadyExist = await getUsersModel.GetUserById(id);
 
     if (!userAlreadyExist) {
-      throw new NotFoundError("Usuário inválido, nenhum resultado foi encontrado.");
+      throw new NotFoundError(
+        "Usuário inválido, nenhum resultado foi encontrado.",
+      );
     }
 
     if (userAlreadyExist.validationCode !== formatedUser.validationCode) {
@@ -26,14 +28,19 @@ export class UpdateUsersService {
 
     const userEmailAlreadyExist = await getUsersModel.GetUserByEmail(email);
 
-    if (userEmailAlreadyExist && userAlreadyExist.id !== userEmailAlreadyExist.id) {
+    if (
+      userEmailAlreadyExist &&
+      userAlreadyExist.id !== userEmailAlreadyExist.id
+    ) {
       throw new ConflictError(
         "O e-mail informado é inválido, e-mail já é existente na base de dados.",
       );
     }
 
     if (userAlreadyExist.email === formatedUser.email) {
-      throw new BadRequestError("O usuário já possui o endereço de e-mail informado.");
+      throw new BadRequestError(
+        "O usuário já possui o endereço de e-mail informado.",
+      );
     }
 
     const updateUsersModel = new UpdateUsersModel();
@@ -47,5 +54,22 @@ export class UpdateUsersService {
     }
 
     throw new BadRequestError("Não foi possível atualizar o email do usuário.");
+  }
+
+  public async UpdateUserPassword({
+    user_id,
+    password,
+    passwordConfirmation,
+    validationCode,
+  }: {
+    user_id: string;
+    password: string;
+    passwordConfirmation: string;
+    validationCode: string;
+  }) {
+    const getUsersModel = new GetUsersModel();
+    const userAlreadyExist = await getUsersModel.GetUserById(user_id);
+
+    return { message: "teste", status: 200 };
   }
 }
