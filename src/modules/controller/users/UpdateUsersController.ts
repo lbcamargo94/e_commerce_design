@@ -6,12 +6,12 @@ class UpdateUsersController {
     request: Request,
     response: Response,
   ): Promise<Response> {
-    const { user_id } = request.params;
+    const user_email = request.params.user_email;
     const { password, passwordConfirmation, validationCode } = request.body;
 
     const updateUsersService = new UpdateUsersService();
     const result = await updateUsersService.UpdateUserPassword({
-      user_id,
+      user_email,
       password,
       passwordConfirmation,
       validationCode,

@@ -20,15 +20,14 @@ model Users {
   lastName       String  @db.VarChar(100)
   password       String? @db.VarChar(50)
   validationCode String? @db.VarChar(6)
+  expiresIn      Int?    @db.Integer()
 
   // Default Values
-  blocked    Boolean @default(false)
-  isValidate Boolean @default(false)
-
+  blocked    Boolean  @default(false)
+  isValidate Boolean  @default(false)
   // Create and Delete
-  createdAt DateTime @default(now()) @db.Timestamptz()
-  updatedAt DateTime @updatedAt @db.Timestamptz()
-
+  createdAt  DateTime @default(now()) @db.Timestamptz()
+  updatedAt  DateTime @updatedAt @db.Timestamptz()
   // Relations Table
 
   @@map("users")

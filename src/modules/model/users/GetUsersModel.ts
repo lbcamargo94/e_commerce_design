@@ -2,11 +2,18 @@ import { database } from "@database/connection";
 
 const SELECT_USERS = {
   id: true,
-  blocked: true,
+  birthday: true,
+  cpf: true,
   email: true,
-  isValidate: true,
   name: true,
+  lastName: true,
+  password: true,
   validationCode: true,
+  expiresIn: true,
+  blocked: true,
+  isValidate: true,
+  createdAt: true,
+  updatedAt: true,
 };
 
 export class GetUsersModel {

@@ -1,8 +1,8 @@
+import {
+  REGEX_EMAIL_VALIDATION,
+  REGEX_PASSWORD_VALIDATION,
+} from "src/utils/constants";
 import { z } from "zod";
-
-const REGEX_EMAIL_VALIDATION = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const REGEX_PASSWORD_VALIDATION =
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%<>:?,.¨&*()+=-])[0-9a-zA-Z.!@#$%<>:?,.¨&*()+=-]{6,20}$/;
 
 export class UpdateUsersSchema {
   public UpdateUsersEmail() {
@@ -19,7 +19,10 @@ export class UpdateUsersSchema {
           invalid_type_error: "E-mail tem um tipo inválido.",
           required_error: "E-mail é um campo obrigatório.",
         })
-        .email({ message: "E-mail é inválido, deve obedecer o formato email@email.com!" })
+        .email({
+          message:
+            "E-mail é inválido, deve obedecer o formato email@email.com!",
+        })
         .regex(REGEX_EMAIL_VALIDATION, {
           message:
             "Endereço de e-mail é inválido, deve obedecer o formato email@email.com!.",
@@ -31,7 +34,8 @@ export class UpdateUsersSchema {
           required_error: "Código de validação é um campo obrigatório.",
         })
         .length(6, {
-          message: "O código de validação deve ter o tamanho de caracteres correto.",
+          message:
+            "O código de validação deve ter o tamanho de caracteres correto.",
         }),
     });
   }
@@ -43,7 +47,10 @@ export class UpdateUsersSchema {
           invalid_type_error: "E-mail tem um tipo inválido.",
           required_error: "E-mail é um campo obrigatório.",
         })
-        .email({ message: "E-mail é inválido, deve obedecer o formato email@email.com!" })
+        .email({
+          message:
+            "E-mail é inválido, deve obedecer o formato email@email.com!",
+        })
         .regex(REGEX_EMAIL_VALIDATION, {
           message:
             "Endereço de e-mail é inválido, deve obedecer o formato email@email.com!.",
@@ -70,13 +77,16 @@ export class UpdateUsersSchema {
           required_error: "Confirmação de senha é um campo obrigatório.",
         })
         .min(6, {
-          message: "Confirmação de senha não está dentro do range mínimo de caracteres.",
+          message:
+            "Confirmação de senha não está dentro do range mínimo de caracteres.",
         })
         .max(20, {
-          message: "Confirmação de senha não está dentro do range máximo de caracteres.",
+          message:
+            "Confirmação de senha não está dentro do range máximo de caracteres.",
         })
         .regex(REGEX_PASSWORD_VALIDATION, {
-          message: "Confirmação de senha não está dentro da formatação correta.",
+          message:
+            "Confirmação de senha não está dentro da formatação correta.",
         }),
 
       validationCode: z
@@ -85,7 +95,8 @@ export class UpdateUsersSchema {
           required_error: "Código de validação é um campo obrigatório.",
         })
         .length(6, {
-          message: "O código de validação deve ter o tamanho de caracteres correto.",
+          message:
+            "O código de validação deve ter o tamanho de caracteres correto.",
         }),
     });
   }

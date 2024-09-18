@@ -13,15 +13,20 @@ export class UpdateUsersModel {
     return result;
   }
 
-  public async UpdateUserPassword(updateUserPassword: {
+  public async UpdateUserPassword({
+    id,
+    password,
+    validationCode,
+    isValidate,
+  }: {
     id: string;
     password: string;
+    validationCode: string;
+    isValidate: boolean;
   }) {
-    const { id, password } = updateUserPassword;
-
     const result = await database.users.update({
       where: { id },
-      data: { password },
+      data: { password, validationCode, isValidate },
     });
 
     return result;

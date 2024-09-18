@@ -6,13 +6,29 @@ export class GetUsersService {
     const getUsersModel = new GetUsersModel();
     const result = await getUsersModel.GetAllUsers();
 
-    if (result) {
-      return {
-        message: result,
-        status: 200,
-      };
-    }
+    return {
+      message: result,
+      status: 200,
+    };
+  }
 
-    throw new BadRequestError("Não foi possível buscar pelos usuários.");
+  public async GetUserByEmail(user_email: string) {
+    const getUsersModel = new GetUsersModel();
+    const result = await getUsersModel.GetUserByEmail(user_email);
+
+    return {
+      message: result,
+      status: 200,
+    };
+  }
+
+  public async GetUserById(user_id: string) {
+    const getUsersModel = new GetUsersModel();
+    const result = await getUsersModel.GetUserById(user_id);
+
+    return {
+      message: result,
+      status: 200,
+    };
   }
 }
