@@ -2,13 +2,10 @@
 
 ![](./public/images/Ecommerce%20web%20page-pana.png)
 > [Online illustrations by Storyset](https://storyset.com/online)
----
 
 ## Introduction
 
 A backend design in node.js and postgres database, for an eComerce application. It includes basic, common concepts such as users and more complex concepts such as user management, access levels, products, attributes, and orders.
-
----
 
 ## Technologies
 
@@ -20,8 +17,6 @@ A backend design in node.js and postgres database, for an eComerce application. 
 * [JWT](https://jwt.io/)
 * [Docker](https://www.docker.com/)
 
----
-
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com/) to install all dependencies.
@@ -30,15 +25,11 @@ Use the package manager [npm](https://www.npmjs.com/) to install all dependencie
 npm install
 ```
 
----
-
 ## Usage
 
 ```javascript
 node index.js
 ```
-
----
 
 ## Contributing
 
